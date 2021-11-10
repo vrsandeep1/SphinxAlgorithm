@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../static/stylesheet.css">
+	</head>
+	<body>
+		<div class="navbar">
+			<a class="navbar-item left active-link" href="/">Home</a>
+			<a class="navbar-item left" href="{{ node_address }}/mine" target="_blank">Request to Mine</a>
+			<a class="navbar-item left" href="/">Resync Blockchain</a>
+		</div>
+		<div class="title">
+			<h1 class="title-text">{{ title }}</h1>
+			<h1 class="subtitle-text">{{ subtitle }}</h1>
+		</div>
+		<hr class="hr">
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+		<ul>
+		{% for message in messages %}
+			<li>{{ message }} </li>
+		{% endfor %}
+		</ul>
+		{% endif %}
+		{% endwith %}
+		{% block content %}{% endblock %}
+		<p style="padding-bottom: 1px;"></p>
+	</body>
+</html>
